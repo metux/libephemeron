@@ -17,7 +17,7 @@ struct ephemeron_arena {
 };
 
 ephemeron_arena_ptr ephemeron_create(size_t size) {
-    size = ((size + BLOCK_SIZE) / BLOCK_SIZE) * BLOCK_SIZE;
+    size = ((size + BLOCK_SIZE - 1) / BLOCK_SIZE) * BLOCK_SIZE;
 
     fprintf(stderr, "EPHEMERON: creating arena of %lu size\n", (unsigned long)size);
     /* FIXME: we could do fancy optimizations, eg. better size alignment, etc */

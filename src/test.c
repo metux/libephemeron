@@ -15,4 +15,9 @@ int main() {
     ephemeron_alloc(arena, 1024);
 
     ephemeron_destroy(arena);
+
+    // Test with 4096 bytes
+    ephemeron_arena_ptr arena2 = ephemeron_create(4096);
+    ephemeron_alloc(arena2, 1024);
+    ephemeron_destroy(arena2);
 }
